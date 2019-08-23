@@ -11,24 +11,28 @@ namespace _04UnitTest
     {
         static void Main(string[] args)
         {
-            Fixture f = new Fixture();
-            var num = f.Create<int>();
-            var p = f.Create<Person>();
+            //Fixture f = new Fixture();
+            //var num = f.Create<int>();
+            //var p = f.Create<Person>();
 
-            var fly = new Mock<Fly>();
-            fly.Setup(g => g.Add(5, 5)).Returns(10);
-            var person = new Person();
-            switch (person.Name)
-            {
-
-            }
+            //var fly = new Mock<Fly>();
+            //fly.Setup(g => g.Add(5, 5)).Returns(10);
+            var person = new Person { Name = new PersonName { FirstName = "wang",LastName="xiaojie"} };
+            var Name = person.GetType().GetProperty("Name").GetValue(person,null);
+            var fn = person.GetType().GetProperty("Name").PropertyType.GetProperty("FirstName").GetValue(Name, null) as string;
+            Console.WriteLine(fn);
             Console.ReadKey();
         }
     }
     class Person
     {
         public int Age { get; set; }
-        public string Name { get; set; }
+        public PersonName Name { get; set; }
+    }
+    class PersonName
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
     public interface Fly
     {

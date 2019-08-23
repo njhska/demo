@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace _05Delegate
 {
     internal delegate void SomeDel();
+    internal delegate TResult SomeDel2<in T, out TResult>(T t);
     class Program
     {
         static void Main(string[] args)
@@ -35,5 +36,17 @@ namespace _05Delegate
     class SomeType3:SomeType2
     {
         
+    }
+    interface ISomePort<in T,out P>
+    {
+        P Dosth(T t);
+    }
+    class SomeType4 : ISomePort<int, string>
+    {
+        public string Dosth(int t)
+        {
+            throw new NotImplementedException();
+        }
+        public string 
     }
 }

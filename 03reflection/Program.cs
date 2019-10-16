@@ -27,11 +27,15 @@ namespace _03reflection
                 //Console.WriteLine(json);
                 //var aa = JsonConvert.DeserializeObject<SomeType>(json);
                 //var assembly = Assembly.Load(new AssemblyName("02ddd_demo"));
-                foreach (var item in t.GetProperties())
-                {
-                    Console.WriteLine(item.PropertyType);
-                }
+                //foreach (var item in t.GetProperties())
+                //{
+                //    Console.WriteLine(item.PropertyType);
+                //}
+                String a = "abc";
+                String b = "abc";
+                var result = object.ReferenceEquals(a, b);
                 Console.ReadKey();
+                System.Text.Encoding
             }
             catch (Exception e)
             {

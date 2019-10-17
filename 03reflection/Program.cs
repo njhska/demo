@@ -35,7 +35,7 @@ namespace _03reflection
                 String b = "abc";
                 var result = object.ReferenceEquals(a, b);
                 Console.ReadKey();
-                System.Text.Encoding
+                //System.Text.Encoding
             }
             catch (Exception e)
             {

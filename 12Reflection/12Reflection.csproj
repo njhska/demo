@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EB48047A-A2ED-4D7B-B9BB-C82A1D31FD90}</ProjectGuid>
+    <ProjectGuid>{4642B4BF-1034-4392-878F-8930E3089F36}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_11HotPlug</RootNamespace>
-    <AssemblyName>11HotPlug</AssemblyName>
+    <RootNamespace>_12Reflection</RootNamespace>
+    <AssemblyName>12Reflection</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,13 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPlug.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

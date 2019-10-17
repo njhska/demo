@@ -47,6 +47,6 @@ namespace _05Delegate
         {
             throw new NotImplementedException();
         }
-        public string 
+        //public string 
     }
 }

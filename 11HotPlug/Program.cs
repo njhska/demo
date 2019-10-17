@@ -1,22 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Reflection;
+using System.IO;
 
-namespace _11HotPlug
+public interface IPlug
 {
-    static class Program
+    void Dosth();
+}
+class Program
+{
+    static void Main(string[] args)
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        var defaultAd = AppDomain.CurrentDomain;
+        defaultAd.SetShadowCopyFiles();
+        var path = Path.Combine(defaultAd.BaseDirectory, "LibLoad.dll");
+        while (true)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var setup = new AppDomainSetup();
+            setup.ShadowCopyFiles = "true";
+            setup.ShadowCopyDirectories = defaultAd.BaseDirectory;
+            var ad = AppDomain.CreateDomain("HotPlugAd", null, setup);
+            
+            var entryAssName = Assembly.GetEntryAssembly().FullName;
+            var loader = (Loader)ad.CreateInstanceAndUnwrap(entryAssName, "Loader");
+            loader.Work(path, "LibLoad.Plug");
+            AppDomain.Unload(ad);
+            Console.ReadKey();
         }
+    }
+}
+public class Loader : MarshalByRefObject
+{
+    public void Work(string assemblyPath,string className)
+    {
+        if (string.IsNullOrEmpty(assemblyPath) || string.IsNullOrEmpty(className))
+            return;
+        var assembly = Assembly.LoadFrom(assemblyPath);
+
+        var t = assembly.GetType(className);
+        var instance = (IPlug)Activator.CreateInstance(t);
+        if (instance != null)
+            instance.Dosth();
     }
 }

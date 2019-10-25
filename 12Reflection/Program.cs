@@ -11,26 +11,40 @@ namespace _12Reflection
     {
         static void Main(string[] args)
         {
-            //var path = @"F:\mygit\demo\12Reflection\bin\Debug\LibLoad.dll";
-            //Assembly ass = Assembly.LoadFile(path);
-            //var t = ass.GetType("LibLoad.Plug");
-            //IPlug plug = (IPlug)Activator.CreateInstance(t);
-            //plug.Dosth();
-            person p = new person("");
+            var ass = Assembly.Load("LibLoad");
+            //var ass = Assembly.LoadFrom(@"F:\mygit\demo\LibLoad\bin\Debug\LibLoad.dll");
+            var tarr = ass.GetExportedTypes();
+            foreach (var item in tarr)
+            {
+                Console.WriteLine(item.FullName);
+                var typeInfo = item.GetTypeInfo();
+                //Console.WriteLine(item.IsPublic);
+                Activator.CreateInstance(item);
+            }
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+
+
+            var openType = typeof(Dictionary<,>);
+            var closeType = openType.MakeGenericType(typeof(String), typeof(Int32));
+            var obj = Activator.CreateInstance(closeType);
+            
+
             Console.ReadKey();
         }
-    }
-    class person
-    {
-        public person(string str)
+
+        //嵌入式dll的
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
-            if (str == string.Empty)
+            var dllName = new AssemblyName(args.Name).Name + ".dll";
+            var assem = Assembly.GetExecutingAssembly();
+            var resourceName = assem.GetManifestResourceNames().FirstOrDefault(rn => rn.EndsWith(dllName));
+            if (resourceName == null) return null;
+            using (var stream = assem.GetManifestResourceStream(resourceName))
             {
-                name = "aaa";
-                return;
+                var assemblyData = new Byte[stream.Length];
+                stream.Read(assemblyData, 0, assemblyData.Length);
+                return Assembly.Load(assemblyData);
             }
-                
         }
-        public string name { get; set; }
     }
 }

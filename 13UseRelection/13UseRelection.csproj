@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4642B4BF-1034-4392-878F-8930E3089F36}</ProjectGuid>
+    <ProjectGuid>{2CAE6A8A-AEE3-45DC-BF01-5447046368B3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_12Reflection</RootNamespace>
-    <AssemblyName>12Reflection</AssemblyName>
+    <RootNamespace>_13UseRelection</RootNamespace>
+    <AssemblyName>13UseRelection</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,15 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LibLoad\LibLoad.csproj">
-      <Project>{ed9a0f40-8d45-4bb9-9910-859d3652ad00}</Project>
-      <Name>LibLoad</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="LibLoad.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

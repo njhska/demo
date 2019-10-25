@@ -1,20 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<script>
-    function load(){
+<html>
+    <body></body>
+    <script>
+        function uuid() {
+            var s = [];
+            var hexDigits = "0123456789abcdef";
+            for (var i = 0; i < 36; i++) {
+                s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+            }
+            s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+            s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+            s[8] = s[13] = s[18] = s[23] = "-";
         
-    }
-</script>
-<body onload="load();">
-    <button id="btn" onclick="alert(123)"></button>
-</body>
+            var uuid = s.join("");
+            return uuid;
+        }
+        var names = 'AA Sponsor, Advocate, Authorized Representative, Behavioral Health Provider, Caregiver, Case Manager, Chiropractor, Clergy, Common Law Employer, Counselor, Dentist, Direct Care Worker, Discharge Planner, Family Member, Friend, Guardian, Hospitalist, Housing Coordinator, Internist, Landlord, Life Coach, Legal Guardian, Neighbor, Neurologist, Nursing Home Transition Coordinator, Nutritionist, Occupational Therapist, Other, Participant, Peer Support Specialist, Physician, Physical Therapist, Power of Attorney, Primary Care Physician, Property Manager, Psychiatrist, Representative Payee, RN Supervisor, Roommate, Secondary Case Manager, Self-Directed Employer of Record, Service Coordinator, Service Provider Staff, Significant other, Social Worker, Specialist-MD, Speech Therapist, Spiritual Advisor, Spouse, Therapist';
+        var arr = names.split(', ');
+        var json = [];
+        for(var i = 0;i<arr.length;i++){
+            var uid = uuid();
+            json.push({
+                "Id": "lookupitems/poccontactinforelationshiptypes/"+uid,
+                "Category": "poccontactinforelationshiptypes",
+                "ParentId": null,
+                "Abbreviation": null,
+                "Name": arr[i],
+                "Description": arr[i],
+                "SortOrder": 100+10*i,
+                "Inactive": false,
+                "UniqueAttribute": {
+                "Guid": uid,
+                "Description": arr[i]
+                },
+                "RuleAttributes": []
+            });
+        }
+        document.getElementsByTagName('body')[0].innerText = JSON.stringify(json);
+    </script>
 </html>
-<script>
-    
-</script>

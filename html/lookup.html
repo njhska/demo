@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    type:<input id="typeText" />
+    <br />
+    answer: <span style="color:red">每项以|分隔</span><br />
+    <textarea id="content" cols="30" rows="10"></textarea>
+    <br />
+    values: <span style="color:red">与answer对应一组以|分隔，每个answer项以,分隔 e.g Vulnerable,Stable|Stable,Declined</span><br />
+    <textarea id="val" cols="30" rows="10"></textarea>
+    <br />
+    <button id="btn">create</button>
+    <div id = "dv"></div>
+</body>
+<script>
+    function uuid() {
+        var s = [];
+        var hexDigits = "0123456789abcdef";
+        for (var i = 0; i < 36; i++) {
+            s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+        }
+        s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+        s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+        s[8] = s[13] = s[18] = s[23] = "-";
+
+        var uuid = s.join("");
+        return uuid;
+    }
+
+    document.getElementById('btn').onclick = function () {
+        var type = document.getElementById('typeText').value;
+        var contentArr = document.getElementById('content').value.split('|');
+        var val = document.getElementById('val').value;
+        var valArr = val.split('|');
+        var dv = document.getElementById('dv');
+        var guid,
+            valArrObj = {},
+            objArr = [],
+            contentValues = [];
+        Array.from(new Set(val.split(/[|,]/))).forEach((item)=>{
+            valArrObj[item] = uuid();
+        })
+        for (var i = 0; i < contentArr.length; i++) {
+            guid = uuid();
+            if(valArr[i]){
+                contentValues = valArr[i].split(',').map((item)=>{
+                    return {
+                        "Guid": valArrObj[item],
+                        "Description": item}
+                });
+            }
+            var obj = {
+                "Id": `lookupitems/${type}/${guid}`,
+                "Category": type,
+                "ParentId": null,
+                "Abbreviation": contentArr[i],
+                "Name": contentArr[i],
+                "Description": contentArr[i],
+                "SortOrder": i*10,
+                "Inactive": false,
+                "UniqueAttribute": {
+                    "Description": contentArr[i],
+                    "Guid": guid
+                },
+                "RuleAttributes": contentValues
+            };
+            objArr.push(obj);
+        }
+        dv.innerText = JSON.stringify(objArr);
+    }
+</script>
+
+</html>

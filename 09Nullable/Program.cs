@@ -11,11 +11,20 @@ namespace _09Nullable
     {
         static void Main(string[] args)
         {
-            var p = new person();
-            p.GetType().GetCustomAttributes();
+            List<string> list = new List<string>();
+            person p = null;
+            //list = p?.Names;
+            if(p!=null&&p.Name!=null)
+            {
+                Console.WriteLine("haha");
+            }
+            var arr = list.Where(x => p != null && x == p.Name);
             Console.ReadKey();
         }
     }
     class person
-    { }
+    {
+        public List<string> Names { get; set; }
+        public string Name { get; set; }
+    }
 }

@@ -27,11 +27,16 @@ namespace _12Reflection
             var openType = typeof(Dictionary<,>);
             var closeType = openType.MakeGenericType(typeof(String), typeof(Int32));
             var obj = Activator.CreateInstance(closeType);
-            
 
+            var pt = typeof(Person);
+            var mis = pt.GetMembers();
+            
             Console.ReadKey();
         }
-
+        class Person
+        {
+            public string name = "aaa";
+        }
         //嵌入式dll的
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {

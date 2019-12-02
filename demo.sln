@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13UseRelection", "13UseRele
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14Serialize", "14Serialize\14Serialize.csproj", "{6809FEE6-AD12-4644-9620-D0DC1CDC408C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15Thread", "15Thread\15Thread.csproj", "{C776FC32-7723-4F44-B770-607E5B13DFFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{6809FEE6-AD12-4644-9620-D0DC1CDC408C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6809FEE6-AD12-4644-9620-D0DC1CDC408C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6809FEE6-AD12-4644-9620-D0DC1CDC408C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C776FC32-7723-4F44-B770-607E5B13DFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C776FC32-7723-4F44-B770-607E5B13DFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C776FC32-7723-4F44-B770-607E5B13DFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C776FC32-7723-4F44-B770-607E5B13DFFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

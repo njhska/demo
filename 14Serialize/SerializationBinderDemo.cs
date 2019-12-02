@@ -1,7 +1,18 @@
 ﻿using System;
+using System.IO;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+
 public static class SerializationBinderDemo
 {
+    public static void go()
+    {
+        using (var stream = new MemoryStream())
+        {
+            var formatter = new BinaryFormatter();
+            formatter.Binder = new Ver1ToVer2SerializationBinder();
+        }
+    }
     [Serializable]
     private sealed class Ver1
     {

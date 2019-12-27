@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E8538C31-359A-494F-8235-1C63CABC6D97}</ProjectGuid>
+    <ProjectGuid>{5DE6C565-E2B0-4A9E-9B96-A608066BF656}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_00String</RootNamespace>
-    <AssemblyName>00String</AssemblyName>
+    <RootNamespace>_16AsyncMethod</RootNamespace>
+    <AssemblyName>16AsyncMethod</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncFuncCodeTransformation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

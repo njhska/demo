@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C776FC32-7723-4F44-B770-607E5B13DFFB}</ProjectGuid>
+    <ProjectGuid>{8109DE73-3AE4-4A0F-91FF-A953CD9ACE8F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>_15Thread</RootNamespace>
     <AssemblyName>15Thread</AssemblyName>
@@ -43,9 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Person.cs" />
+    <Compile Include="CancellationDemo.cs" />
+    <Compile Include="ChildTaskDemo.cs" />
+    <Compile Include="ParallelDemo.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThreadContext.cs" />
+    <Compile Include="TaskCancelDemo.cs" />
+    <Compile Include="TaskContinueDemo.cs" />
+    <Compile Include="TaskContinuesDemo.cs" />
+    <Compile Include="TaskDemo.cs" />
+    <Compile Include="TaskFactoryDemo.cs" />
+    <Compile Include="TimerDemo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

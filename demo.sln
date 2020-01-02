@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17ThreadSync", "17ThreadSyn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery", "Lottery\Lottery.csproj", "{40AE14FA-5356-4FE4-B13A-2BDC692B7DF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15_2TaskScheduler", "15_2TaskScheduler\15_2TaskScheduler.csproj", "{4B4115C5-0696-41DF-9E70-2A243B5C4B80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{40AE14FA-5356-4FE4-B13A-2BDC692B7DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40AE14FA-5356-4FE4-B13A-2BDC692B7DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40AE14FA-5356-4FE4-B13A-2BDC692B7DF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B4115C5-0696-41DF-9E70-2A243B5C4B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B4115C5-0696-41DF-9E70-2A243B5C4B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B4115C5-0696-41DF-9E70-2A243B5C4B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B4115C5-0696-41DF-9E70-2A243B5C4B80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

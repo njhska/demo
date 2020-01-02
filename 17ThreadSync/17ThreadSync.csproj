@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DE6C565-E2B0-4A9E-9B96-A608066BF656}</ProjectGuid>
+    <ProjectGuid>{0715B3E3-E629-4FF6-AD2A-E5C88E3B3FA6}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_16AsyncMethod</RootNamespace>
-    <AssemblyName>16AsyncMethod</AssemblyName>
+    <RootNamespace>_17ThreadSync</RootNamespace>
+    <AssemblyName>17ThreadSync</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsyncFuncCodeTransformation.cs" />
-    <Compile Include="Cancellation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaskLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

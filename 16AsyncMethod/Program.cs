@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _16AsyncMethod
 {
@@ -10,7 +6,8 @@ namespace _16AsyncMethod
     {
         static void Main(string[] args)
         {
-            AsyncFuncCodeTransformation.Go();
+            //AsyncFuncCodeTransformation.Go();
+            TaskLogger.Go().Wait();
             Console.ReadKey();
         }
     }

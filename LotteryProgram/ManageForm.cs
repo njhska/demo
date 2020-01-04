@@ -103,7 +103,7 @@ namespace LotteryProgram
             var sql = "select [Level] as 优先级,Id as 学号,IdCard as 身份证号,[Name] as 姓名,PhoneNumber as 电话 from Persons where 1=1";
             if(!string.IsNullOrWhiteSpace(TextNumber.Text))
             {
-                sql += $" and Id = {TextNumber.Text.Trim()}";
+                sql += $" and Id = '{TextNumber.Text.Trim()}'";
             }
             var result = SqlHelper.Query(sql);
             PersonsDataGrid.DataSource = result;

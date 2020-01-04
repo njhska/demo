@@ -70,6 +70,8 @@ namespace LotteryProgram
                     showList.Add(row[0].ToString());
                 }
             }
+            sql = $"update Persons set SelectedTime = getdate() where [Level] = {round}";
+            SqlHelper.ExecuteNonquery(sql);
             sql = "select Id from Persons where SelectedTime is null";
             dataTable = SqlHelper.Query(sql);
             if (dataTable.Rows.Count > 0)
@@ -93,13 +95,20 @@ namespace LotteryProgram
 
         private DataTable GetDatas()
         {
-            var sql = "select Id as 学号,IdCard as 身份证号,[Name] as 姓名,SelectedTime as 中奖时间 from Persons where SelectedTime is not null order by SelectedTime";
+            var sql = "select Id as 学号,IdCard as 身份证号,[Name] as 姓名,SelectedTime as 中奖时间 from Persons where SelectedTime is not null order by SelectedTime desc";
             return SqlHelper.Query(sql);
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             LotteryDataGrid.DataSource = GetDatas();
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            round = 0;
+            var sql = "update Persons set SelectedTime = null";
+            SqlHelper.ExecuteNonquery(sql);
         }
     }
 }

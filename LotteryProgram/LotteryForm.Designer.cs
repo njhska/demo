@@ -44,6 +44,7 @@
             this.LotteryDataGrid = new System.Windows.Forms.DataGridView();
             this.BtnSearch = new System.Windows.Forms.Button();
             this.LabList = new System.Windows.Forms.Label();
+            this.BtnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LotteryDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,11 +190,22 @@
             this.LabList.TabIndex = 4;
             this.LabList.Text = "中奖名单";
             // 
+            // BtnClear
+            // 
+            this.BtnClear.Location = new System.Drawing.Point(388, 143);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(75, 23);
+            this.BtnClear.TabIndex = 5;
+            this.BtnClear.Text = "清除纪录";
+            this.BtnClear.UseVisualStyleBackColor = true;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            // 
             // LotteryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 450);
+            this.Controls.Add(this.BtnClear);
             this.Controls.Add(this.LabList);
             this.Controls.Add(this.BtnSearch);
             this.Controls.Add(this.LotteryDataGrid);
@@ -233,5 +245,6 @@
         private System.Windows.Forms.DataGridView LotteryDataGrid;
         private System.Windows.Forms.Button BtnSearch;
         private System.Windows.Forms.Label LabList;
+        private System.Windows.Forms.Button BtnClear;
     }
 }

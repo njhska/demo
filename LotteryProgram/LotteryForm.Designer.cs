@@ -43,6 +43,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.LotteryDataGrid = new System.Windows.Forms.DataGridView();
             this.BtnSearch = new System.Windows.Forms.Button();
+            this.LabList = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LotteryDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -171,7 +172,7 @@
             // 
             // BtnSearch
             // 
-            this.BtnSearch.Location = new System.Drawing.Point(505, 143);
+            this.BtnSearch.Location = new System.Drawing.Point(305, 143);
             this.BtnSearch.Name = "BtnSearch";
             this.BtnSearch.Size = new System.Drawing.Size(75, 23);
             this.BtnSearch.TabIndex = 3;
@@ -179,11 +180,21 @@
             this.BtnSearch.UseVisualStyleBackColor = true;
             this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
+            // LabList
+            // 
+            this.LabList.AutoSize = true;
+            this.LabList.Location = new System.Drawing.Point(244, 148);
+            this.LabList.Name = "LabList";
+            this.LabList.Size = new System.Drawing.Size(55, 13);
+            this.LabList.TabIndex = 4;
+            this.LabList.Text = "中奖名单";
+            // 
             // LotteryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 450);
+            this.Controls.Add(this.LabList);
             this.Controls.Add(this.BtnSearch);
             this.Controls.Add(this.LotteryDataGrid);
             this.Controls.Add(this.BtnLottery);
@@ -221,5 +232,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.DataGridView LotteryDataGrid;
         private System.Windows.Forms.Button BtnSearch;
+        private System.Windows.Forms.Label LabList;
     }
 }

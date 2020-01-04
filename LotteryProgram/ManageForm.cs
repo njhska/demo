@@ -73,7 +73,7 @@ namespace LotteryProgram
 
         private static DataTable GetDatas()
         {
-            var sql = "select Id as 学号,IdCard as 身份证号,[Name] as 姓名,PhoneNumber as 电话 from Persons";
+            var sql = "select [Level] as 优先级,Id as 学号,IdCard as 身份证号,[Name] as 姓名,PhoneNumber as 电话 from Persons order by Id";
             var result = SqlHelper.Query(sql);
             return result;
         }
@@ -96,6 +96,17 @@ namespace LotteryProgram
                     }
                 }
             }
+        }
+
+        private void BtnSearch_Click(object sender, EventArgs e)
+        {
+            var sql = "select [Level] as 优先级,Id as 学号,IdCard as 身份证号,[Name] as 姓名,PhoneNumber as 电话 from Persons where 1=1";
+            if(!string.IsNullOrWhiteSpace(TextNumber.Text))
+            {
+                sql += $" and Id = {TextNumber.Text.Trim()}";
+            }
+            var result = SqlHelper.Query(sql);
+            PersonsDataGrid.DataSource = result;
         }
     }
 }
